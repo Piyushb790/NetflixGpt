@@ -2,6 +2,9 @@
 
     - create-react-app netflixgpt
     - configured tailwind css
+    - Header
+    - login form
+    - sign up form
 
 # features
 
