@@ -4,7 +4,7 @@ const VideoBackground = ({ id }) => {
   const trailor = useSelector((store) => store.movies?.trailor);
   useMovieTrailor(id);
   return (
-    <div className="absolute  ">
+    <div className="overflow-x-hidden">
       <iframe
         className="w-screen aspect-video h-screen"
         src={
