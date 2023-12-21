@@ -5,7 +5,7 @@ import { bgtrailor } from "../utils/constants";
 const GptSearch = () => {
   return (
     <div className="">
-      <div className="trailor absolute -z-10">
+      <div className="trailor fixed -z-10">
         <img src={bgtrailor} alt="bg-img" />
       </div>
       <GptMovieFinder />

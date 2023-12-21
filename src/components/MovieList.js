@@ -1,16 +1,20 @@
 import React from "react";
 
 import MovieCard from "./MovieCard";
+
 const MovieList = ({ title, movies }) => {
+  console.log(movies);
   return (
-    movies && (
-      <div className="-mt-48 relative   z-20">
-        <MovieCard movies={movies?.nowPlayingMovies} title={title} />
-        <MovieCard movies={movies?.topRatedMovies} title={"Top Rated Movies"} />
-        <MovieCard movies={movies?.popularMovies} title={"Popular Movies"} />
-        <MovieCard movies={movies?.upcomingMovies} title={"Upcoming Movies"} />
+    <div className="px-6 ">
+      <h1 className="text-3xl py-5 text-white">{title}</h1>
+      <div className=" flex overflow-x-scroll">
+        <div className="flex gap-x-5">
+          {movies?.map((movie) => (
+            <MovieCard key={movie?.id} posterPath={movie?.poster_path} />
+          ))}
+        </div>
       </div>
-    )
+    </div>
   );
 };
 
