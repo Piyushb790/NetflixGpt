@@ -4,9 +4,13 @@ import GptMovieFinder from "./GptMovieFinder";
 import { bgtrailor } from "../utils/constants";
 const GptSearch = () => {
   return (
-    <div className="">
-      <div className="trailor fixed -z-10">
-        <img src={bgtrailor} alt="bg-img" />
+    <div className="relative">
+      <div className="trailor fixed inset-0 z-[-10]">
+        <img
+          src={bgtrailor}
+          className="w-full h-full object-cover"
+          alt="bg-img"
+        />
       </div>
       <GptMovieFinder />
       <GptMoviesSuggestion />

@@ -25,22 +25,19 @@ const GptMovieFinder = () => {
   // search each movie for tmdb api
 
   const handleGptSearchClick = async () => {
-    console.log(searchText.current.value);
-
     const gptQuery =
       "Act as a Movie Recommendation system and suggest some movies for the query" +
       searchText.current.value +
       "only give me names of 5 movies, comma separated like the example result given ahead. Example Result: gadar, omg2, don, raone,golmaal";
 
-    const gptResults = await openai.chat.completions.create({
+    const gptResults = await openai?.chat?.completions?.create({
       messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
     });
-    // console.log(gptResults.choices[0]?.message?.content);
 
     const recommendedMovies =
-      gptResults.choices[0]?.message?.content.split(",");
-    // console.log(recommendedMovies);
+      gptResults?.choices[0]?.message?.content?.split(",");
+    console.log(recommendedMovies);
     const promiseArray = recommendedMovies.map((movieName) =>
       searchMovieTMDB(movieName)
     );
@@ -60,17 +57,17 @@ const GptMovieFinder = () => {
   return (
     <div className="flex justify-center  ">
       <form
-        className="mt-40 bg-black p-4 rounded-sm"
+        className="mt-40 bg-black p-2 md:p-4 rounded-sm"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchText}
           type="text"
           placeholder={lang[language].searchPlaceHolder}
-          className=" rounded-lg px-4 py-3 w-[40rem]  font-semibold text-lg outline-none "
+          className=" rounded-lg px-4 py-3 w-[15rem] md:w-[40rem]  font-semibold text-xs md:text-lg outline-none "
         />
         <button
-          className="bg-[#19c37d] px-4 py-3 rounded-md text-white ml-3 hover:bg-green-500"
+          className="bg-[#19c37d] px-4 py-3 rounded-md text-white ml-3 text-xs hover:bg-green-500 md:text-lg"
           onClick={handleGptSearchClick}
         >
           {lang[language].searchBtn}

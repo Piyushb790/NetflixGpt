@@ -53,17 +53,20 @@ const Header = () => {
   }, []);
 
   return (
-    <div className=" min-w-full absolute bg-gradient-to-b from-black flex items-center justify-between z-40  ">
-      <ul>
+    <div className=" min-w-full absolute bg-gradient-to-b from-black flex  flex-col md:flex-row items-center justify-between   z-40  ">
+      <ul className="mx-auto md:mx-0">
         <li>
-          <img className="h-20" src={logo} alt="logo" />
+          <img className="h-20 " src={logo} alt="logo" />
         </li>
       </ul>
       {user && (
         <ul className="flex items-center gap-x-4 mr-4">
           {showGptSearch && (
             <li>
-              <select className="p-1 rounded-md" onChange={handleLangChange}>
+              <select
+                className="p-1 rounded-md bg-black text-white "
+                onChange={handleLangChange}
+              >
                 {SUPPORTED_LANGUAGES.map((langOpt) => (
                   <option key={langOpt.identifier} value={langOpt.identifier}>
                     {langOpt.name}
@@ -81,7 +84,10 @@ const Header = () => {
             </button>
           </li>
           <li>
-            <img src={user.photoURL} className="h-10 w-10 rounded-xl" />
+            <img
+              src={user.photoURL}
+              className="h-10 w-10 rounded-xl hidden md:block"
+            />
           </li>
           <li>
             <button
