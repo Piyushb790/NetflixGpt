@@ -4,17 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../redux/userSlice";
-import { SUPPORTED_LANGUAGES, logo } from "../utils/constants";
-import { toggleGptSearchView } from "../redux/gptSlice";
-import { changeLang } from "../redux/langSlice";
+import { logo } from "../utils/constants";
+
 const Header = () => {
-  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
-  const handleGptSearch = () => {
-    //toggle gpt search
-    dispatch(toggleGptSearchView());
-  };
+
   const navigate = useNavigate();
 
   const handleSignout = () => {
@@ -23,9 +18,6 @@ const Header = () => {
       .catch((error) => {
         // An error happened.
       });
-  };
-  const handleLangChange = (e) => {
-    dispatch(changeLang(e.target.value));
   };
 
   useEffect(() => {
@@ -61,28 +53,6 @@ const Header = () => {
       </ul>
       {user && (
         <ul className="flex items-center gap-x-4 mr-4">
-          {showGptSearch && (
-            <li>
-              <select
-                className="p-1 rounded-md bg-black text-white "
-                onChange={handleLangChange}
-              >
-                {SUPPORTED_LANGUAGES.map((langOpt) => (
-                  <option key={langOpt.identifier} value={langOpt.identifier}>
-                    {langOpt.name}
-                  </option>
-                ))}
-              </select>
-            </li>
-          )}
-          <li>
-            <button
-              className="bg-[#19c37d] p-1 rounded-md text-white"
-              onClick={handleGptSearch}
-            >
-              {showGptSearch ? "Browse Netflix " : "GPT Search"}
-            </button>
-          </li>
           <li>
             <img
               src={user.photoURL}
