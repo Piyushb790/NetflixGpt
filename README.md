@@ -1,4 +1,5 @@
-# Netflix GPT
+### live Link - [NetflixInspired](https://netfliixinspired.netlify.app/)
+# Netflix Inspired
 
     - create-react-app netflixgpt
     - configured tailwind css
