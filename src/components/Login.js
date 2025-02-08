@@ -1,14 +1,14 @@
 import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { validate } from "../utils/validate";
-import { avatar } from "../utils/constants";
+import { avatar, BG_URL } from "../utils/constants";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase.js";
-import { bgtrailor } from "../utils/constants";
+import { BG_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addUser } from "../redux/userSlice";
 
@@ -98,7 +98,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="trailor">
-        <img src={bgtrailor} alt="bg-img" />
+        <img src={BG_URL} alt="bg-img" />
       </div>
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="bg-black absolute top-48 left-[580px] w-3/12 bg-opacity-80 p-8 rounded-lg text-white ">

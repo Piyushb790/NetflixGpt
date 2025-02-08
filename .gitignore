@@ -8,8 +8,12 @@
 # testing
 /coverage
 
+.env
+
 # production
 /build
+/.parcel-cache
+/dist
 
 # misc
 .DS_Store
@@ -22,4 +26,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.env
